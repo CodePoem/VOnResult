@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">VOnResult</string>
+    <string name="hint_input_custom_result_code">input custom result code</string>
+    <string name="hint_custom_result_string_data">input custom result string data</string>
+</resources>
