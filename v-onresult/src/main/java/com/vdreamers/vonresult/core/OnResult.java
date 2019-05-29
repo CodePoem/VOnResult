@@ -59,7 +59,7 @@ public class OnResult {
             fragmentManager
                     .beginTransaction()
                     .add(onResultFragment, TAG)
-                    .commitNow();
+                    .commitNowAllowingStateLoss();
         }
         return onResultFragment;
     }
