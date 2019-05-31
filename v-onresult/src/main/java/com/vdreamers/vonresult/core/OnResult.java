@@ -34,6 +34,18 @@ public class OnResult {
         mOnResultFragment = getLazySingleton(fragment.getChildFragmentManager());
     }
 
+    public static OnResult of(@NonNull final Activity activity) {
+        return new OnResult(activity);
+    }
+
+    public static OnResult of(@NonNull final FragmentActivity activity) {
+        return new OnResult(activity);
+    }
+
+    public static OnResult of(@NonNull final Fragment fragment) {
+        return new OnResult(fragment);
+    }
+
     @NonNull
     private Lazy<OnResultFragment> getLazySingleton(@NonNull final FragmentManager fragmentManager) {
         return new Lazy<OnResultFragment>() {

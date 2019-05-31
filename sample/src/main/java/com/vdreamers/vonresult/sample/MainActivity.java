@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 int type = 1;
                 Intent intent = FirstActivity.actionStartIntent(MainActivity.this,
                         MainNameConstants.NAME_FIRST, type);
-                new OnResult(MainActivity.this).start(intent,
+                OnResult.of(MainActivity.this).start(intent,
                         MainRequestCodeConstants.REQUEST_CODE_FIRST, new OnResultCallBack() {
                             @Override
                             public void onActivityResult(int resultCode, Intent data) {
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 String pwd = "123";
                 Intent intent = SecondActivity.actionStartIntent(MainActivity.this,
                         MainNameConstants.NAME_SECOND, pwd);
-                new OnResult(MainActivity.this).start(intent,
+                OnResult.of(MainActivity.this).start(intent,
                         MainRequestCodeConstants.REQUEST_CODE_SECOND, new OnResultCallBack() {
                             @Override
                             public void onActivityResult(int resultCode, Intent data) {
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 boolean isOpen = false;
                 final Intent intent = ThirdActivity.actionStartIntent(MainActivity.this,
                         MainNameConstants.NAME_THIRD, isOpen);
-                new OnResult(MainActivity.this).start(intent,
+                OnResult.of(MainActivity.this).start(intent,
                         MainRequestCodeConstants.REQUEST_CODE_THIRD, new OnResultCallBack() {
                             @Override
                             public void onActivityResult(int resultCode, Intent data) {
