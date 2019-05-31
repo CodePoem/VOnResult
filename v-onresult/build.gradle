@@ -28,3 +28,5 @@ dependencies {
     implementation rootProject.ext.dependencies['androidxAppcompat']
     implementation rootProject.ext.dependencies['androidxConstraintLayout']
 }
+
+apply from:'https://raw.githubusercontent.com/CodePoem/UploadRepository/master/bintray/uploadBintray.gradle'
