@@ -6,6 +6,12 @@
 
 VOnResult is try to avoid onActivityResult.
 
+# Gradle
+
+```gradle dep
+compile 'com.vdreamers.vonresult:v-onresult:1.0.1'
+```
+
 # ChangeLog
 
 ## [1.0.1](https://github.com/CodePoem/VOnResult/compare/v1.0.0...v1.0.1) (2019-05-31)
