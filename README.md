@@ -6,11 +6,24 @@
 
 VOnResult is try to avoid onActivityResult.
 
-# Gradle
+## Gradle
 
 ```gradle dep
-compile 'com.vdreamers.vonresult:v-onresult:1.0.1'
+compile 'com.vdreamers.vonresult:v-onresult:1.0.2'
 ```
 
-# [ChangeLog](CHANGELOG.md)
+## How to Use
+
+```how to use
+OnResult.of(activity or fragment)
+        .start(intent, request, new OnResultCallBack() {
+            @Override
+            public void onActivityResult(int requestCode, int resultCode, Intent data) {
+                // do something
+            }
+         });
+```
+
+
+## [ChangeLog](CHANGELOG.md)
 

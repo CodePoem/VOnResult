@@ -6,6 +6,8 @@ def androidxTestEspressoCoreVer = "3.1.1"
 def androidxAppcompatVer = "1.0.0"
 def androidxConstraintLayoutVer = "1.1.3"
 
+def vOnResultVer = "1.0.2"
+
 ext {
     android = [
             applicationId    : "com.vdreamers.vonresult.sample",
@@ -24,5 +26,6 @@ ext {
     dependencies = [
             "androidxAppcompat"       : "androidx.appcompat:appcompat:${androidxAppcompatVer}",
             "androidxConstraintLayout": "androidx.constraintlayout:constraintlayout:${androidxConstraintLayoutVer}",
+            "vOnResult"               : "com.vdreamers.vonresult:v-onresult:${vOnResultVer}",
     ]
 }

@@ -1,5 +1,24 @@
 apply plugin: 'com.android.application'
 
+def keystoreFilepath = ''
+def keystorePWD = ''
+def keystoreAlias = ''
+def keystoreAliasPWD = ''
+// default keystore file, PLZ config file path in local.properties
+def keyfile = file('s.keystore.temp')
+
+Properties properties = new Properties()
+// local.properties file in the root director
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+keystoreFilepath = properties.getProperty("keystore.path")
+
+if (keystoreFilepath) {
+    keystorePWD = properties.getProperty("keystore.password")
+    keystoreAlias = properties.getProperty("keystore.alias")
+    keystoreAliasPWD = properties.getProperty("keystore.alias_password")
+    keyfile = file(keystoreFilepath)
+}
+
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
@@ -10,10 +29,31 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs {
+        release {
+            keyAlias keystoreAlias
+            keyPassword keystoreAliasPWD
+            storeFile keyfile
+            storePassword keystorePWD
+        }
+    }
     buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // 签名文件存在，则签名
+            if (keyfile.exists()) {
+                println("WITH -> buildTypes -> release: using jks key")
+                signingConfig signingConfigs.release
+            } else {
+                println("WITH -> buildTypes -> release: using default key")
+                signingConfig signingConfigs.debug
+            }
         }
     }
 }
@@ -27,5 +67,6 @@ dependencies {
 
     implementation rootProject.ext.dependencies['androidxAppcompat']
     implementation rootProject.ext.dependencies['androidxConstraintLayout']
-    implementation project(":v-onresult")
+    debugImplementation project(":v-onresult")
+    releaseImplementation rootProject.ext.dependencies['vOnResult']
 }

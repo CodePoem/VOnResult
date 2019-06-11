@@ -40,7 +40,7 @@ public class OnResultFragment extends Fragment {
         // callback方式的处理
         OnResultCallBack onResultCallBack = mCallbacks.remove(requestCode);
         if (onResultCallBack != null) {
-            onResultCallBack.onActivityResult(resultCode, data);
+            onResultCallBack.onActivityResult(requestCode, resultCode, data);
         }
     }
 }

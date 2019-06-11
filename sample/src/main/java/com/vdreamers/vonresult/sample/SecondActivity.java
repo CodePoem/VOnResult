@@ -1,14 +1,15 @@
 package com.vdreamers.vonresult.sample;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * SecondActivity
@@ -26,7 +27,7 @@ public class SecondActivity extends AppCompatActivity {
     public static final String PARAM_KEY_PWD = "PARAM_KEY_PWD";
 
     @NonNull
-    public static Intent actionStartIntent(Context context, String name, String pwd){
+    public static Intent actionStartIntent(Context context, String name, String pwd) {
         Intent intent = new Intent(context, SecondActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString(PARAM_KEY_NAME, name);
@@ -35,7 +36,7 @@ public class SecondActivity extends AppCompatActivity {
         return intent;
     }
 
-    private void getIntentData(){
+    private void getIntentData() {
         Intent intent = getIntent();
         if (intent == null) {
             return;
@@ -66,7 +67,11 @@ public class SecondActivity extends AppCompatActivity {
         findViewById(R.id.btn_close).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int resultCode = Integer.valueOf(customResultCodeEditText.getText().toString());
+                String customResultCode = customResultCodeEditText.getText().toString();
+                int resultCode = 0;
+                if (!TextUtils.isEmpty(customResultCode)) {
+                    resultCode = Integer.valueOf(customResultCode);
+                }
                 setResult(resultCode);
                 finish();
             }

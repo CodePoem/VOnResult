@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 OnResult.of(MainActivity.this).start(intent,
                         MainRequestCodeConstants.REQUEST_CODE_FIRST, new OnResultCallBack() {
                             @Override
-                            public void onActivityResult(int resultCode, Intent data) {
+                            public void onActivityResult(int requestCode, int resultCode, Intent data) {
                                 Toast.makeText(MainActivity.this, String.valueOf(resultCode),
                                         Toast.LENGTH_SHORT).show();
                             }
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 OnResult.of(MainActivity.this).start(intent,
                         MainRequestCodeConstants.REQUEST_CODE_SECOND, new OnResultCallBack() {
                             @Override
-                            public void onActivityResult(int resultCode, Intent data) {
+                            public void onActivityResult(int requestCode, int resultCode, Intent data) {
                                 Toast.makeText(MainActivity.this, String.valueOf(resultCode),
                                         Toast.LENGTH_SHORT).show();
                             }
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 OnResult.of(MainActivity.this).start(intent,
                         MainRequestCodeConstants.REQUEST_CODE_THIRD, new OnResultCallBack() {
                             @Override
-                            public void onActivityResult(int resultCode, Intent data) {
+                            public void onActivityResult(int requestCode, int resultCode, Intent data) {
                                 if (data == null) {
                                     return;
                                 }

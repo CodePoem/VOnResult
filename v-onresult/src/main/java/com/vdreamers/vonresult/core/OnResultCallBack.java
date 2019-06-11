@@ -14,8 +14,9 @@ public interface OnResultCallBack {
     /**
      * 返回结果回调方法
      *
-     * @param resultCode 结果码
-     * @param data       返回结果意图
+     * @param requestCode 请求码
+     * @param resultCode  结果码
+     * @param data        返回结果意图
      */
-    void onActivityResult(int resultCode, Intent data);
+    void onActivityResult(int requestCode, int resultCode, Intent data);
 }
