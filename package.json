@@ -1,6 +1,6 @@
 {
   "name": "VOnResult",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "VOnResult is try to avoid onActivityResult.",
   "main": "index.js",
   "dependencies": {},
