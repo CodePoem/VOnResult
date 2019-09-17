@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+
+def keystoreFilepath = ''
+def keystorePWD = ''
+def keystoreAlias = ''
+def keystoreAliasPWD = ''
+// default keystore file, PLZ config file path in local.properties
+def keyfile = file('s.keystore.temp')
+
+Properties properties = new Properties()
+// local.properties file in the root director
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+keystoreFilepath = properties.getProperty("keystore.path")
+
+if (keystoreFilepath) {
+    keystorePWD = properties.getProperty("keystore.password")
+    keystoreAlias = properties.getProperty("keystore.alias")
+    keystoreAliasPWD = properties.getProperty("keystore.alias_password")
+    keyfile = file(keystoreFilepath)
+}
+
+android {
+    compileSdkVersion rootProject.ext.androidSupport.compileSdkVersion
+    defaultConfig {
+        applicationId rootProject.ext.androidSupport.applicationId
+        minSdkVersion rootProject.ext.androidSupport.minSdkVersion
+        targetSdkVersion rootProject.ext.androidSupport.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "support.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        release {
+            keyAlias keystoreAlias
+            keyPassword keystoreAliasPWD
+            storeFile keyfile
+            storePassword keystorePWD
+        }
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // 签名文件存在，则签名
+            if (keyfile.exists()) {
+                println("WITH -> buildTypes -> release: using jks key")
+                signingConfig signingConfigs.release
+            } else {
+                println("WITH -> buildTypes -> release: using default key")
+                signingConfig signingConfigs.debug
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    testImplementation rootProject.ext.testDependenciesSupport['junit']
+    androidTestImplementation rootProject.ext.testDependenciesSupport['supportTestRunnerJunit']
+    androidTestImplementation rootProject.ext.testDependenciesSupport['supportTestEspressoCore']
+
+    implementation rootProject.ext.dependenciesSupport['supportAppcompat']
+    implementation rootProject.ext.dependenciesSupport['supportConstraintLayout']
+    debugImplementation project(":v-onresult-support")
+//    releaseImplementation rootProject.ext.dependenciesSupport['vOnResultSupport']
+}

@@ -1,1 +1,5 @@
-include ':sample', ':v-onresult'
+if (IsSupport == "true") {
+    include ':sample-support', ':v-onresult-support'
+} else {
+    include ':sample', ':v-onresult'
+}
