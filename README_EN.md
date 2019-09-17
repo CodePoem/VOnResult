@@ -11,13 +11,13 @@ VOnResult is try to avoid onActivityResult.
 AndroidX:
 
 ```gradle androidx
-compile 'com.vdreamers.vonresult:v-onresult:1.0.2'
+implementation 'com.vdreamers.vonresult:v-onresult:1.0.2'
 ```
 
 Support:
 
 ```gradle support
-compile 'com.vdreamers.vonresult.support:v-onresult-support:1.0.2'
+implementation 'com.vdreamers.vonresult.support:v-onresult-support:1.0.2'
 ```
 
 ## How to Use
