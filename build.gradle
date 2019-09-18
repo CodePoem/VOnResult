@@ -1,6 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 if (IsSupport == "true") {
-    apply from: "$rootProject.projectDir/dependencies-support.gradle"
+    apply from: "$rootProject.projectDir/dependenciesSupport.gradle"
 } else {
     apply from: "$rootProject.projectDir/dependencies.gradle"
 }
