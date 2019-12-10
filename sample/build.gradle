@@ -67,6 +67,5 @@ dependencies {
 
     implementation rootProject.ext.dependencies['androidxAppcompat']
     implementation rootProject.ext.dependencies['androidxConstraintLayout']
-    debugImplementation project(":v-onresult")
-    releaseImplementation rootProject.ext.dependencies['vOnResult']
+    implementation project(":v-onresult")
 }

@@ -25,8 +25,7 @@ dependencies {
     androidTestImplementation rootProject.ext.testDependencies['androidxTestExtJunit']
     androidTestImplementation rootProject.ext.testDependencies['androidxTestEspressoCore']
 
-    implementation rootProject.ext.dependencies['androidxAppcompat']
-    implementation rootProject.ext.dependencies['androidxConstraintLayout']
+    compileOnly rootProject.ext.dependencies['androidxAppcompat']
 }
 
 apply from:'https://raw.githubusercontent.com/CodePoem/UploadRepository/master/bintray/uploadBintray.gradle'

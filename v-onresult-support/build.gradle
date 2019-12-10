@@ -26,8 +26,7 @@ dependencies {
     androidTestImplementation rootProject.ext.testDependenciesSupport['supportTestEspressoCore']
     implementation 'com.android.support:support-annotations:28.0.0'
 
-    implementation rootProject.ext.dependenciesSupport['supportAppcompat']
-    implementation rootProject.ext.dependenciesSupport['supportConstraintLayout']
+    compileOnly rootProject.ext.dependenciesSupport['supportAppcompat']
 }
 
 apply from:'https://raw.githubusercontent.com/CodePoem/UploadRepository/master/bintray/uploadBintray.gradle'

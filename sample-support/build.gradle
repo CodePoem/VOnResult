@@ -67,6 +67,5 @@ dependencies {
 
     implementation rootProject.ext.dependenciesSupport['supportAppcompat']
     implementation rootProject.ext.dependenciesSupport['supportConstraintLayout']
-    debugImplementation project(":v-onresult-support")
-//    releaseImplementation rootProject.ext.dependenciesSupport['vOnResultSupport']
+    implementation project(":v-onresult-support")
 }
