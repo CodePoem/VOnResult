@@ -8,8 +8,10 @@ if (IsSupport == "true") {
 buildscript {
     repositories {
         google()
-        jcenter()
-        
+//        jcenter()
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+        maven{ url 'http://maven.aliyun.com/nexus/content/repositories/google'}
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.2'
@@ -22,8 +24,10 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
-        
+//        jcenter()
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+        maven{ url 'http://maven.aliyun.com/nexus/content/repositories/google'}
     }
     // javadoc encode
     tasks.withType(Javadoc) {

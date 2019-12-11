@@ -28,4 +28,4 @@ dependencies {
     compileOnly rootProject.ext.dependencies['androidxAppcompat']
 }
 
-apply from:'https://raw.githubusercontent.com/CodePoem/UploadRepository/master/bintray/uploadBintray.gradle'
+apply from: "$rootProject.projectDir/uploadBintray.gradle"
